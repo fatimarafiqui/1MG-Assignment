@@ -86,11 +86,12 @@ body {
 }
 
 .list-view {
-  padding: 20px;
+  padding: 10px;
   border: 1px solid #f1f1f1;
   background: #ffffff;
-  max-height: 40vh;
+  max-height: 25vh;
   overflow: auto;
+  border-radius: 5px; 
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -98,6 +99,9 @@ body {
   padding: 10px;
   color: #626262;
   border-bottom: 1px solid #e4e4e4f2;
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+  overflow: hidden;
 }
 
 .item:last-child {

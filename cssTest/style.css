@@ -31,10 +31,11 @@ a, a:visited {
 	-webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     border-color: rgba(0, 0, 0, 0.4);
-    margin-top: -40px;
+    margin-top: -3rem;
 }
 
 .logo-container {
+	padding-bottom: 3rem;
 	background-color: #3287ef;
 }
 
