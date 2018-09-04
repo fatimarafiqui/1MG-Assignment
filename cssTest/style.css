@@ -1,0 +1,129 @@
+html, body, #root {
+	min-height: 100vh;
+}
+
+body {
+	background-color: #ec534a;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 16px;
+}
+
+a, a:visited {
+	color: #3287ef;
+	text-decoration: none;
+}
+
+#root {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.main {
+	width: 700px;
+}
+
+.container {
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    border-color: rgba(0, 0, 0, 0.4);
+    margin-top: -40px;
+}
+
+.logo-container {
+	background-color: #3287ef;
+}
+
+.logo {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.content {
+	background-color: #efefef;
+	padding-bottom: 2rem;
+
+	display: flex;
+	justify-content: center;
+}
+
+form {
+	padding: 2rem;
+	width: 40%;
+}
+
+input[type=text], input[type=password] {
+	width: 100%;
+	border: 0;
+    border-bottom: 2px solid #3287F7;
+    outline: 0;
+}
+
+input:focus {
+	border-bottom: 2px solid #afd1fa;
+}
+
+input[type=checkbox] {
+	color: #efefef;
+}
+
+.password {
+	margin-top: 30px;
+}
+
+.small-text {
+	font-size: 0.7rem;
+	color: #6d6d6d;
+	font-weight: 600;
+}
+
+.form-group {
+	margin-top: 10px;
+}
+
+.forget {
+	float: right;
+}
+
+.account {
+	text-align: center;
+	cursor: pointer;
+}
+
+button {
+    background-color: #3287F7;
+    color: white;
+    padding: 14px 20px;
+    margin: 2rem 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.errorMsg {
+	display: none;
+	margin-top: 5px;
+	color: #e10012;
+	font-size: 0.7rem;
+}
+
+.error input[type=text], .error input[type=password] {
+	border-bottom: 2px solid #e10012;
+}
+
+.error .errorMsg {
+	display: block;
+}
