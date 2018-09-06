@@ -14,6 +14,7 @@ class App extends Component {
       tagEnd: 'v2.2.0-rc2',
       data: [],
       isLoading: true,
+      errorFound: false,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -28,16 +29,21 @@ class App extends Component {
     fetch(apiEndPoint)
       .then(response => response.json())
       .then(data => {
-        const parsedData = data.commits.reduce((acc, curr) => {
-          if ('author' in curr && curr.author) {
-            const { sha, author } = curr;
-            acc.push({sha, author});
-          }
-          return acc;
-        }, []);
-        console.log(parsedData);
-        this.setState({ data: parsedData });
-        this.setState({ isLoading: false });
+        if ('commits' in data) {
+          const parsedData = data.commits.reduce((acc, curr) => {
+            if ('sha' in curr && curr.sha && 'author' in curr && curr.author) {
+              const { sha, author } = curr;
+              acc.push({sha, author});
+            }
+            return acc;
+          }, []);
+          console.log(parsedData);
+          this.setState({ data: parsedData });
+          this.setState({ isLoading: false });
+        } else {
+          this.setState({ isLoading: false });
+          this.setState({ errorFound: true });
+        }
       });
   }
 
@@ -50,11 +56,12 @@ class App extends Component {
 
   handleFormSubmit(e) {
     this.setState({ isLoading: true });
+    this.setState({ errorFound: false });
     this.updateData();
   }
 
   render() {
-    const { githubUsername, repoName, tagStart, tagEnd, data, isLoading } = this.state;
+    const { githubUsername, repoName, tagStart, tagEnd, data, isLoading, errorFound } = this.state;
     return (
       <div>
         <header className='header'>
@@ -71,8 +78,9 @@ class App extends Component {
         </header>
         <main>
           <div className="content">
-            {isLoading && <Spin size="large" />}
-            {!isLoading && <Timeline data={data}/>}
+            {isLoading && !errorFound && <Spin size="large" />}
+            {!isLoading && !errorFound && <Timeline data={data}/>}
+            {!isLoading && errorFound && 'Something went wrong, Try a different query'}
           </div>
         </main>
       </div>
