@@ -1,0 +1,51 @@
+.timeline-container {
+	width: 100%;
+}
+
+.card {
+	background-color: #fff;
+	padding: .5rem;
+	display: flex;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    box-shadow: 0 6px 20px 0 rgba(0,0,0,.19);
+}
+
+.card:hover {
+	box-shadow: 0 6px 20px 0 rgba(0,0,0,.35);
+}
+
+.card.reversed {
+	flex-direction: row-reverse;
+}
+
+.card > div {
+	flex: 1 1 160px;
+	padding: .5rem;
+	margin: 0px auto;
+}
+
+.avatar {
+	max-width: 80px;
+}
+
+.avatar > img {
+	width: 100%;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	overflow: hidden;
+}
+
+.card-text {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.user-name {
+	font-weight: 600;
+	font-size: 1.2rem;
+}
